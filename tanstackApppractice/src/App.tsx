@@ -1,4 +1,9 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
+import Users from "./Usersquery";
+
+
+const queryClient = new QueryClient();
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -11,15 +16,17 @@ const App = () => {
 
   }
   useEffect(() => {
-   console.log(`After Useeffect: ${count}`)
+    console.log(`After Useeffect: ${count}`)
   }, [count])
 
 
   return (
     <>
-      The count: {count}
-      <button onClick={increment}>Add</button>
-
+      <QueryClientProvider client={queryClient}>
+        The count: {count}
+        <button onClick={increment}>Add</button>
+        <Users />
+      </QueryClientProvider>
     </>
   )
 }
