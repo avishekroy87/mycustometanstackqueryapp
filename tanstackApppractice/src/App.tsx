@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
 import Users from "./Usersquery";
+import GrokAsses from "./GrokAsses";
 
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => {
         <button onClick={increment}>Add</button>
         <Users />
       </QueryClientProvider>
+      <GrokAsses/>
     </>
   )
 }
